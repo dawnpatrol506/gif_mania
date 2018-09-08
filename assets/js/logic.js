@@ -52,8 +52,8 @@ $(document).ready(function(){
     function addGif(gif, still, rating){
         let card = $('<div class="card"></div>');
         let cardBody = $('<div class="card-body"></div>');
-        let footer = $('<div class="card-footer"></div>');
-        footer.text('Rating: ' + rating);
+        let header = $('<div class="card-header"></div>');
+        header.text('Rating: ' + rating);
         let img = $('<img>');
         img.attr('src', still);
         img.attr('data-still', still);
@@ -61,8 +61,8 @@ $(document).ready(function(){
         img.attr('data-status', 'still');
 
         cardBody.append(img);
+        card.append(header);
         card.append(cardBody);
-        card.append(footer);
 
         $('#gif-area').append(card);
     }
