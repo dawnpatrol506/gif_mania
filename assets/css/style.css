@@ -1,0 +1,26 @@
+.movie-button{
+    margin: 3px;
+}
+
+#sbmt{
+    margin: 7px 0px;
+}
+
+.row{
+    margin-bottom: 40px;
+}
+
+.gif-area{
+    display: flex;
+}
+
+.card{
+    display: flex;
+    float: left;
+    margin: 3px;
+}
+
+body{
+    background-image: url('/assets/images/bg.jpg');
+    background-size: contain;
+}

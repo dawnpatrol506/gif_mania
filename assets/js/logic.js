@@ -1,15 +1,45 @@
 $(document).ready(function(){
 
+    var movies = [
+        'Back to the Future',
+        'The Breakfast Club',
+        "Ferris Buellers's Day Off",
+        'Ghostbusters',
+        'E.T.',
+        'The Goonies',
+        'Raiders of the Lost Ark',
+        'The Empire Strikes Back',
+        'Die Hard',
+        'Top Gun',
+        'The Terminator',
+        'Who Framed Roger Rabbit'
+    ];
+
+    function populateButtons(arr){
+        $('#button-list').empty();
+        
+        for(let i = 0; i < arr.length; i++){
+            let btn = $('<button>');
+            btn.text(arr[i]);
+            btn.addClass('btn btn-info movie-button');
+            $('#button-list').append(btn);
+        }
+    }
+
+    $(document).on('click', '.movie-button', function(){
+        $('#gif-area').empty();
+        getGifs($(this).text());
+    });
+
     $('#sbmt').click(function(event){
 
         event.preventDefault();
         //console.log('prevented');
         let text = $('#search-box').val();
         $('#search-box').val('');
-        console.log(text);
-        addButton(text);
-        getGifs(text);
-
+        //console.log(text);
+        movies.push(text);
+        populateButtons(movies);
     });
 
     $(document).on('click', 'img', function(){
@@ -22,13 +52,6 @@ $(document).ready(function(){
             $(this).attr('data-status', 'still');
         }
     });
-
-
-    function addButton(text){
-        let newButton = $('<button class="btn btn-info">');
-        newButton.text(text);
-        $('#button-list').append(newButton);
-    }
 
     function getGifs(searchTerm){
 
@@ -66,5 +89,7 @@ $(document).ready(function(){
 
         $('#gif-area').append(card);
     }
+
+    populateButtons(movies);
 
 });
