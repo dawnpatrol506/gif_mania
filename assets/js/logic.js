@@ -37,8 +37,12 @@ $(document).ready(function(){
         //console.log('prevented');
         let text = $('#search-box').val();
         $('#search-box').val('');
+        if(text === '')
+            return;
         //console.log(text);
-        movies.push(text);
+        if(movies.indexOf(text) === -1)
+            movies.push(text);
+
         populateButtons(movies);
     });
 
